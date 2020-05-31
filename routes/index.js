@@ -100,7 +100,6 @@ details.save(function(err,res1){
 //create
 
 router.get('/create/add', function(req, res, next) {
-
 phonedetail.exec(function(err,data){
     if(err) throw err;
 
@@ -118,15 +117,19 @@ phonedetail.exec(function(err,data){
 
 router.post('/create/add', function(req, res, next) {
 
+  console.log('Req', req.body);
+
 var details=new phoneDetailModel({
   name:req.body.uname,
   email:req.body.email,
   number:req.body.number,
-  dob:req.body.dob 
+  dob:req.body.dob,
+  other_email: req.body.other_email,
+  other_phone: req.body.other_phone 
 });
 
 details.save(function(err,res1){
-  if(err) throw err;
+  if(err) res.end();
   res.redirect('/');
   // phonedetail.exec(function(err,data){
   //   if(err) throw err;

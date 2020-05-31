@@ -3,10 +3,16 @@ mongoose.connect('mongodb://test:secret123@ds123929.mlab.com:23929/unirely-v2',{
 var conn=mongoose.connection;
 var phoneSchema=new mongoose.Schema({
     name:String,
-    email:String,
-    number:Number,
+   // email:String,
+    email:[
+        {
+            type: String,
+            default: null,
+        }
+    ],
+    //number:Number,
     dob:Date,
-    phone_no:[
+    number:[
         {
             type: String,
             default: null
