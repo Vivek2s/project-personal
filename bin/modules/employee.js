@@ -1,5 +1,5 @@
 var mongoose=require('mongoose');
-mongoose.connect('mongodb://localhost:27017/phoneDetail',{useNewUrlParser:true});
+mongoose.connect('mongodb://test:secret123@ds123929.mlab.com:23929/unirely-v2',{useNewUrlParser:true});
 var conn=mongoose.connection;
 var phoneSchema=new mongoose.Schema({
     name:String,
